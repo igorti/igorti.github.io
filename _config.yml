@@ -1,0 +1,12 @@
+# Site settings
+title: Igor Tihonov
+email: contact@igortihonov.com
+description: ""
+baseurl: ""
+url: "http://igortihonov.com"
+twitter_username: igorti
+github_username:  igorti
+
+# Build settings
+markdown: kramdown
+permalink: pretty
