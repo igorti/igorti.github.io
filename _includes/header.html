@@ -4,7 +4,7 @@
 
     <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
 
-    <!-- <nav class="site-nav">
+    <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
            viewBox="0 0 18 15" enable-background="new 0 0 18 15" xml:space="preserve">
@@ -18,10 +18,10 @@
       </a>
       <div class="trigger">
         {% for page in site.pages %}
-          {% if page.title %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>{% endif %}
+          {% if page.display_name %}<a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.display_name }}</a>{% endif %}
         {% endfor %}
       </div>
-    </nav> -->
+    </nav>
 
   </div>
 
