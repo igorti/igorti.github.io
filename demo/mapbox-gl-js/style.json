@@ -1,0 +1,52 @@
+{
+  "constants": {
+    "@roads": "#ffffff",
+    "@parks": "#C0D899",
+    "@buildings": "#D3C0AE"
+  },
+
+  "sources": {
+    "roads": {
+      "type": "geojson",
+      "data": "http://igortihonov.com/demo/mapbox-gl-js/roads.geojson"
+    },
+    "parks": {
+      "type": "geojson",
+      "data": "http://igortihonov.com/demo/mapbox-gl-js/parks.geojson"
+    },
+    "buildings": {
+      "type": "geojson",
+      "data": "http://igortihonov.com/demo/mapbox-gl-js/buildings.geojson"
+    }
+  },
+
+  "layers": [
+    {
+      "id": "background",
+      "style": { "background-color": "#EDEADE" },
+      "type": "background"
+    },
+    {
+      "id": "roads",
+      "source": "roads",
+      "style": {
+        "line-color": "@roads",
+        "line-width": 3
+      },
+      "type" : "line"
+    },
+    {
+      "id": "parks",
+      "source": "parks",
+      "style": { "fill-color": "@parks" },
+      "type": "fill"
+    },
+    {
+      "id": "buildings",
+      "source": "buildings",
+      "style": { "fill-color": "@buildings", "fill-outline-color": "#dfdbd7" },
+      "type": "fill",
+      "interactive": true
+    }
+  ]
+}

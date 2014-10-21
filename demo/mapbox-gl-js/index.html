@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset='utf-8'">
+    <title>Mapbox-gl.js demo</title>
+    <meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' />
+    <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.3.0/mapbox-gl.css' rel='stylesheet' />
+
+    <style type="text/css">
+      html, body, #map { height: 100%; margin: 0px; }
+      #feature-info { background-color: #fff; position:absolute; left:10px; bottom: 10px; z-index: 10; }
+    </style>
+</head>
+<body>
+  <div id='map'>
+    <div id='feature-info'></div>
+  </div>
+
+  <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.3.0/mapbox-gl.js'></script>
+  <script>
+    mapboxgl.util.getJSON('style.json', function (err, style) {
+      var map = new mapboxgl.Map({
+        container: 'map',
+        style: style,
+        center: [58.56838, 16.16191],
+        zoom: 12.6
+      });
+
+      map.addControl(new mapboxgl.Navigation());
+
+      map.on('click', function(e) {
+        map.featuresAt(e.point, {}, function(err, features) {
+            if (features && features.length > 0) {
+              document.getElementById('feature-info').innerHTML = features[0].properties["ANDAMAL_1T"];
+            }
+        });
+      });
+    });
+  </script>
+
+</body>
+</html>
