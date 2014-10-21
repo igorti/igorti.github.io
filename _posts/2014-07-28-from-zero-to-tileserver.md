@@ -9,15 +9,15 @@ Location is one of the most important factors when buying a house so map is vita
 
 1. Our old "small" map showed only 50 search results at a time. The idea behind this was that it would match properties in result list below it(which obviously can't show thousands of listings).
 
-![](/assets/hemnet-results-page-old.png)
+![](/assets/from_zero_to_tileserver/hemnet-results-page-old.png)
 
 We knew that concept of pagination doesn't work well with maps so we wanted to show all search results on a map, be it 50 or 10000.
 
-![](/assets/hemnet-results-page-new.png)
+![](/assets/from_zero_to_tileserver/hemnet-results-page-new.png)
 
 2. For users who prefer map view as starting point we would create a fullscreen map that would work great on smartphones, tablets and desktop computers. Of course that would require us to  be able to show all search results on a fullscreen map as well.
 
-![](/assets/hemnet-fullscreen.png)
+![](/assets/from_zero_to_tileserver/hemnet-fullscreen.png)
 
 
 ### Lots of data on the map
@@ -56,7 +56,7 @@ Results turned out to be great but we still had some optimizations to do. Our go
 
 To avoid that we kept track at what pixel coordinates on a tile a point was already drawn. If a new point was going to be drawn at the same pixel we simply skipped it. The performance boost was huge and we were now pretty close to our goal render time.
 
-<img style="float:right; margin-left:50px; width:256px" src="/assets/hemnet-tile.png">
+<img style="float:right; margin-left:50px; width:256px" src="/assets/from_zero_to_tileserver/hemnet-tile.png">
 Having full control of rendering was really great as we now could tweak tiny details as we wish. For instance, in tiles like image to the right, we gave higher priority to "more popular" types of properties like villas and apartments and lower priority to types like yards and holiday houses. So if villa and yard were to be drawn at the same pixel, yard would get skipped.
 
 We did a few other tweaks that had to do with infrastructure as we run as many tileserver instances as there are CPU cores available and we had some concurrency issues.
