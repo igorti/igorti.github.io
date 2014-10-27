@@ -5,7 +5,7 @@ display_name: About
 permalink: /about/
 ---
 
-<img src="/assets/igor.jpg" style="float:left; margin: 0 45px 20px 0;">
+<img src="/assets/igor.jpg" style="float:left; margin: 0 45px 20px 0; width: 250px;">
 
 Hi, I'm Igor Tihonov. I'm a software developer with big passion for anything maps- and geo- related. I enjoy working with any types of languages and technologies, currently focusing mostly Ruby, Javascript and iOS.
 
