@@ -20,13 +20,13 @@ We knew that concept of pagination doesn't work well with maps so we wanted to s
 ![](/assets/from_zero_to_tileserver/hemnet-fullscreen.png)
 
 
-### Lots of data on the map
+## Lots of data on the map
 
 With those decisions being made we were facing a problem that everyone working with maps stumbles upon sooner or later. Searches can result in anything from couple of properties up to 100000. Drawing so much data in a browser would slow down the page and at worst crush the browser.
 
 One way of walking around this problem is to cluster markers so that number of objects drawn in the browser is so low that even browsers like IE8 can handle it. We did a few tests and realized that while this solution probably works well with some types of data, it sure is a poor solution for real estate data where property's location is crucial. Clustering would make some areas look like there are no properties for sale out there up until user zooms in a fair bit. We thought that wouldn't make a great map search experience.
 
-### Raster to the rescue
+## Raster to the rescue
 
 Obvious way to go was to render data as raster images serverside and show them as overlay. We've set up a WMS service with Geoserver on top of our PostGIS database. That worked to some extent although we've noticed a few problems.
 
@@ -36,7 +36,7 @@ Obvious way to go was to render data as raster images serverside and show them a
 - We wanted markers to be interactive and of different size depending on how many markers are on the map, not on zoom level.
 
 
-### The best of two worlds
+## The best of two worlds
 
 With that in mind we've come up with a mixed approach. If user search results in 500 or more properties we would render them with non clickable tiles(no one would want to click on specific point with so many points on a map anyway). Otherwise render bigger fully interactive icons in the browser. Every time user pans or zooms we would check if current viewport has 500 or more properties and choose appropriate render strategy. Initial search would be cached in Redis so those checks would be blazingly fast and never hit database again.
 
@@ -50,7 +50,7 @@ But there was one problem. A CSV of about 5mb with 60000 points with 3 attribute
 
 This is where my colleague told me - "Skrew it, let's try render tiles without Mapnik!". I was a bit skeptic at first but we gave it a try. Because our cartography was very simple it was as easy as to pick point that are within bounds of requested tile, translate coordinates to pixels and draw them on a canvas.
 
-### Tuning the performance
+## Tuning the performance
 
 Results turned out to be great but we still had some optimizations to do. Our goal was to make each tile request last no longer that 50 to 100 milliseconds. With all data being in memory what could possibly take so much time(in some cases up to a couple of seconds per tile)? After some code profiling we found the bottleneck - drawing thousands of points on a canvas was slow. In tiles with many points most of them were unnecessary to draw because they were drawn behind each other anyway.
 
@@ -63,7 +63,7 @@ We did a few other tweaks that had to do with infrastructure as we run as many t
 
 With all optimizations in place we are now capable of rendering few thousands tiles per second in our production environment with most tiles taking about 100-200 ms to render. I think it's an amazing result considering that it's all live data that is constantly changing.
 
-### End result
+## End result
 
 As we gradually rolled out our tileserver to the masses, we were very happy with results. Transition between rendering with tiles and rendering in browser was almost seamless. I think we managed to find a sweet spot with solution that can show big amount of constantly changing data while remaining interactive and user friendly. You can give it a try on our [fullscreen search page](http://www.hemnet.se/resultat/karta).
 

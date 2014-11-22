@@ -5,7 +5,7 @@ title: Export Runmeter workouts to geojson
 
 I've been actively running for about 4 years now and through the years I happened to use [Runmeter app for iPhone](https://itunes.apple.com/us/app/runmeter-gps-pedometer-running/id326498704?mt=8) to track my runs. Especially in the beginning this app was priceless to me because it often gave me motivation to go out for a run and beat that previous time record even on the days when running was the last thing I wanted to do. To this day I've accumulated about 500 runs and while all these runs are viewable in the app I really wanted to find a way to export them to a format, like geojson, that can be easily manipulated and visualized.
 
-### It's all in the database
+## It's all in the database
 Like most iOS apps, Runmeter stores its data in sqlite database. It turned out that getting database out of the app is easy - you can do it through File Sharing in iTunes:
 
 ![](/assets/runmeter/filesharing.png)
@@ -63,7 +63,7 @@ Now we can write [simple `node.js` script](https://github.com/igorti/runmeter2ge
 }
 {% endhighlight %}
 
-### Optimize for the web
+## Optimize for the web
 
 The resulting geojson file turns out to be about 10mb, which can take a while to download even for users sitting on a wifi connection, not  to mention those on 3G. [In my previous blog post](http://igortihonov.com/2014/11/12/speedup-web-maps-minify-geojson/) I wrote about small utility `geojson-minifier` which can shrink the size of geojson files 3-4 times. Running our `runs.geojson` through this utility indeed does make it much smaller.
 
@@ -79,7 +79,7 @@ After decoding packed geojson [with geojson-minifier `unpack` method](https://gi
 
 ![](/assets/runmeter/runs.png)
 
-### What about your runs?
+## What about your runs?
 
 Do you track your runs or bike rides with Runmeter or other apps like Runkeeper, Endomondo or Strava? It would be interesting to see if this script can be customized to support more providers!
 

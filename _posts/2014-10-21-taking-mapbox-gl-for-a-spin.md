@@ -6,7 +6,7 @@ title: Taking mapbox-gl.js for a spin
 Not long ago Mapbox [announced release of mapbox-gl.js](https://www.mapbox.com/blog/mapbox-gl/), a javascript mapping library based on [WebGL](http://en.wikipedia.org/wiki/WebGL). WebGL has been around for a while but hasn't been widely adopted because of lack of support in major browsers. Now that all latest major browsers, [including Internet Explorer](http://techcrunch.com/2013/10/21/with-internet-explorer-on-board-webgl-is-ready-for-prime-time/), have support for it, it becomes more and more interesting. Even more exciting is the fact that WebGL is coming to mobile with newly released iOS8 adding support for it. Exciting times indeed! With all that in mind I couldn't resist to try it out.
 
 
-### Starting off
+## Starting off
 
 Getting up and running is easy and documentation provides some [good examples](http://www.mapbox.com/mapbox-gl-js/examples/) for that. With just a few lines of code you can get a working map:
 
@@ -34,7 +34,7 @@ ogr2ogr -f "GeoJSON" -s_srs EPSG:3006 -t_srs EPSG:4326 buildings.geojson buildin
 
 Geojson is one of the few formats that mapbox-gl.js supports as of now. It might not work so well if you want to create map for bigger area, as it will require you to download all the data in the browser before you can render it, which can take a while. A better approach would then be to use vector tiles so that client gets data in small chunks. For our demo though geojson will work just fine as the area is just a couple of square km.
 
-### Basic stylesheet
+## Basic stylesheet
 
 Now that we have data to play with, let's create a basic stylesheet. The building blocks of a stylesheet are `sources` and `layers`. Sources describe where to get data and layers describe how to style it. Other options you can specify in a stylesheet are `version`, `sprite`, `glyphs` and `constants`. Let's create stylesheet with bare minimum:
 
@@ -100,7 +100,7 @@ By slightly modifying earlier javascript code that creates a map we get a workin
 You can see how smooth map rendering is because it redraws continuously comparing to traditional web maps where new static tiles are requested as soon user pans or zooms the map.
 
 
-### Interactivity
+## Interactivity
 
 One of the nice things with client-side rendering is that all geodata is already on a client, including attributes. With just a few lines of code we can allow users click on objects on a map to see attributes:
 
@@ -116,7 +116,7 @@ map.on('click', function(e) {
 
 For that to work we have to first mark layers that we want to be queryable `interactive: true` in `style.json`. Now, by clicking on the building you can see what type of building it is in the lower left corner of the map.
 
-### Performance
+## Performance
 
 One of the advantages of using WebGL comparing to other rendering technologies is that it can utilize GPU to perform different tasks and therefore should at least theoretically have much better performance. [Below is a demo](/demo/mapbox-gl-js/performance.html) where you can add 1000 features at a time to the map to test how many features mapbox-gl.js is capable of drawing before browser becomes slow and unresponsive. Warning, this demo may crash your browser!
 
@@ -124,7 +124,7 @@ One of the advantages of using WebGL comparing to other rendering technologies i
 
 What you'll notice is that initial drawing is slow as it takes a couple of seconds before new 1000 features appear on the map. During that time browser can hang and become unresponsive and I guess it has more to do with parsing of huge geojson than the actual drawing. But once parsed and drawn, map remains smooth and you can zoom and pan without lagging. I've managed to come up to about 10000 features on Safari, after that browser would usually crash. I'm sure that with more efficient data formats like vector tiles you can handle much bigger amounts of data.
 
-### Conclusion
+## Conclusion
 
 I see two main areas where mapbox-gl.js is different comparing traditional mapping libraries like Leaflet or Openlayers. First, it's the flexibility it gives us because everything is rendered client side. Having full control of rendering we can create completely new type of applications that are more interactive. Using for instance traffic information roads can be styled differently depending on whether there are traffic jams in the area or not. Another advantage is performance. Now that we can render whole world in the browser there's no need prerender data into tiles, which once again opens up for building much more interactive and fun to use applications!
 
