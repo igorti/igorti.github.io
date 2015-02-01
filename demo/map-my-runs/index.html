@@ -1,0 +1,34 @@
+<html>
+  <title>Map My Runs</title>
+  <head>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css" />
+    <link rel="stylesheet" href="lib/leaflet.cluster.css" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div id="map">
+      <div id="dashboard">
+        <div id="distance">
+          <span></span> m
+        </div>
+        <div>
+          <span id="time"></span> h
+        </div>
+        <div>
+          <span id="date">23 december 2012</span>
+        </div>
+        <div>
+          <span id="locality"></span>
+        </div>
+      </div>
+    </div>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script src="lib/leaflet.cluster.js"></script>
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="lib/geojson-minifier.js"></script>
+    <script type="text/javascript" src="data/runs.geojson.packed"></script>
+
+    <script type="text/javascript" src="src/index.js"></script>
+  </body>
+</html>
