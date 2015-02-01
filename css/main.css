@@ -41,13 +41,16 @@ a:visited { color: #205caa; }
 /* Start page */
 .photo {
   float:left;
-  margin: 0 45px 20px 0;
+  margin: 0 20px 20px 0;
+}
+
+.photo img {
   width: 200px;
 }
 
 .bio {
   float:left;
-  max-width: 540px;
+  max-width: 560px;
   font-size: 18px;
 }
 
@@ -365,6 +368,24 @@ a:visited { color: #205caa; }
 /* ----------------------------------------------------------*/
 
 
+@media screen and (max-width: 860px) {
+  .photo {
+    float: none;
+    margin: 0 auto;
+    width: 150px;
+  }
+
+  .photo img {
+    width: 150px;
+  }
+
+  .bio {
+    float: none;
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
 @media screen and (max-width: 750px) {
 
   .footer-col-1 { width: 50%; }
@@ -383,7 +404,6 @@ a:visited { color: #205caa; }
     float: none;
     clear: both;
   }
-
 }
 
 @media screen and (max-width: 600px) {
@@ -408,5 +428,4 @@ a:visited { color: #205caa; }
   .post-content img {
     width: 100%;
   }
-
 }
