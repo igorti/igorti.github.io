@@ -2,19 +2,40 @@
 layout: default
 ---
 
-<div class="posts">
-  {% for post in site.posts %}
-    <div class="post">
-      <header class="post-header">
-        <h1><a href="{{ post.url}}">{{ post.title }}</a></h1>
-        <p class="meta">
-          {{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}
-        </p>
-      </header>
+<div>
+  <img class="photo" src="/assets/igor.jpg" alt="photo" />
 
-      <article class="post-content">
-        {{ post.content }}
-      </article>
-    </div>
-  {% endfor %}
+  <div class="bio">
+    <p>
+      Hi, I'm Igor.
+    </p>
+
+    <p>
+      I'm a software developer with big passion for anything maps- and geo- related. I enjoy working with any types of languages and technologies, currently focusing on Ruby, Javascript and iOS.
+    </p>
+
+    <p>
+      I live in Sweden, work for <a href="http://hemnet.se" target="_blank">Hemnet</a>, occasionally run marathons and I'm a new dad.
+    </p>
+
+    <p>
+      You can find me on <a href="http://twitter.com/igorti" target="_blank">Twitter</a> and <a href="https://www.linkedin.com/pub/igor-tihonov" target="_blank">Linkedin</a> or <a href="mailto:contact@igortihonov.com">mail</a>.
+    </p>
+  </div>
 </div>
+
+<div class="clear"></div>
+
+<h3 class="heading"><span>Recent posts</span></h3>
+
+<ul class="posts">
+  {% for post in site.posts %}
+    <li>
+      <span class="date">
+        {{ post.date | date: "%b %-d, %Y" }}{% if post.author %} • {{ post.author }}{% endif %}{% if post.meta %} • {{ post.meta }}{% endif %}
+      </span>
+
+      <a class="title" href="{{ post.url}}">{{ post.title }}</a>
+    </li>
+  {% endfor %}
+</ul>

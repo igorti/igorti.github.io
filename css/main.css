@@ -9,7 +9,7 @@
 html, body { height: 100%; }
 
 body {
-  font-family: Helvetica, Arial, sans-serif;
+  font-family: 'Open Sans', Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
   font-weight: 300;
@@ -38,6 +38,53 @@ a:visited { color: #205caa; }
   zoom: 1;
 }
 
+/* Start page */
+.photo {
+  float:left;
+  margin: 0 45px 20px 0;
+  width: 200px;
+}
+
+.bio {
+  float:left;
+  max-width: 540px;
+  font-size: 18px;
+}
+
+.bio p {
+  margin-bottom: 20px;
+}
+
+.clear {
+  clear: both;
+}
+
+.heading {
+  color: #333;
+  font-size: 24px;
+  position: relative;
+  text-align: center;
+  line-height: 32px;
+  margin-top: 50px;
+}
+
+.heading:before {
+  border-top: 1px solid #DDD;
+  content: "";
+  display: block;
+  margin-top: -1px;
+  position: absolute;
+  top: 50%;
+  width: 100%;
+}
+
+.heading span {
+  background: #FFF;
+  display: inline-block;
+  padding: 0 16px;
+  position: relative;
+}
+
 
 /* Layout Styles */
 /* ----------------------------------------------------------*/
@@ -62,6 +109,7 @@ a:visited { color: #205caa; }
   line-height: 56px;
   position: relative;
   z-index: 1;
+  text-decoration: none;
 }
 
 .site-nav {
@@ -116,23 +164,23 @@ a:visited { color: #205caa; }
   background-color: #fff;
 }
 
-.posts .post {
-  margin-bottom: 100px;
+.posts {
+  text-align: center;
+  list-style-type: none;
 }
 
-.posts { list-style-type: none; }
-
-.posts li { margin-bottom: 30px; }
-
-.posts .post-link {
-  font-size: 24px;
-  letter-spacing: -1px;
-  line-height: 1;
+.posts li {
+  margin-top: 30px;
 }
 
-.posts .post-date {
+.posts .title {
+  font-size: 22px;
+  line-height: 22px;
+}
+
+.posts .date {
   display: block;
-  font-size: 15px;
+  font-size: 12px;
   color: #818181;
 }
 
