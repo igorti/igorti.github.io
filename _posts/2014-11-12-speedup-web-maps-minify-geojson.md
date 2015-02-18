@@ -5,7 +5,7 @@ title: Speed up web maps - minify geojson
 
 [GeoJSON](http://geojson.org/) has become de facto standard when it comes to transferring, manipulating and visualizing geospatial data on the web. Major mapping libraries like [Leaflet](http://leafletjs.com/) and [OpenLayers](http://openlayers.org/) have great support for it, making it pretty straightforward going from raw data to interactive web map. [Github](http://github.com/) has gone so long that they [show geodata](https://github.com/blog/1528-there-s-a-map-for-that) in a map view if it's commited to repository with .geojson-extension. No doubt geojson has become one of the most widespread geospatial formats.
 
-## A problem
+## The problem
 While GeoJSON is a very simple to understand and human readable format, it is awfully inefficient when it comes to storing data. Polygons and LineStrings are represented as a sequence of coordinates and, with each coordinate taking up at least 10-12 characters, files end up being bigger than necessary. When dealing with usual javascript and css assets it's a common practice to minify files to make pages load faster. Removing whitespaces, newlines and even renaming long names can reduce assets size significantly. Why don't we apply same techniques to geojson files?
 
 I found [a blog post written by Bjørn 2 years ago](http://blog.thematicmapping.org/2012/11/how-to-minify-geojson-files.html) where he goes through simple tricks that help make GeoJSON files smaller, like removal of whitespaces, newlines and trailing zeros. But there's more we can do to achieve even better results.
