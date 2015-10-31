@@ -7,4 +7,8 @@
   ga('create', 'UA-53265186-1', 'auto');
   ga('send', 'pageview');
 
+  // User came from external site
+  if (document.referrer !== "" && document.referrer.indexOf(window.location.host) < 0) {
+    ga('send', 'event', 'came-from', document.referrer.split('/')[2]);
+  }
 </script>
