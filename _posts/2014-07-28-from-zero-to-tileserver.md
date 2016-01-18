@@ -69,4 +69,6 @@ As we gradually rolled out our tileserver to the masses, we were very happy with
 
 In most cases established software like Mapserver or Geoserver are definitely the way to go for maps that need to show lots of data. In cases like ours, when you need tileserver to be tightly integrated with existing infrastructure and scale to millions of users, creating one customized to specific use case can be an option. After all, the solution turned out to be quite simple, although it took some iterations to find right technologies to use.
 
-P.S. Visiting [FOSS4G](https://2014.foss4g.org) this year and interested to find out more about how we built our tileserver? I'll be giving a talk about it("Tileserver on a diet) and will be happy to answer any questions.
+Here's a talk I gave about tileserver at FOSS4G 2014 in Portland:
+
+<iframe src="https://player.vimeo.com/video/107473824?title=0&byline=0&portrait=0" width="100%" height="450" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
